@@ -1,0 +1,2 @@
+Janome==0.3.6
+dataclasses==0.6
