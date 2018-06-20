@@ -8,7 +8,7 @@
 
 ## 使いかた
 
-入力文は標準入力であたえ、`--max_step`引数で何層まで上位概念を探索するかをあたえます。
+入力文は標準入力であたえ、`--max_step`引数で何層まで上位語を探索するかをあたえます。
 
 ```
 $ cat data/text1.txt
@@ -31,6 +31,10 @@ $ cat data/text2.txt | python query.py --max_step 2
 2. `requirements.txt`に記載されているライブラリをインストールしてください。
    `pip install -r requirements.txt`
 
+## 技術詳細
+
+分かち書きに[Janome](https://pypi.org/project/Janome/)を使い、入力文から名詞と認識された語自体と位置を取得します。次に、その語をWordNetで上位語を指定された層数まで探索します。この処理を入力文の数だけ繰り返すと、それぞれの文に、文のなかのそれぞれの名詞とその上位語の集合が求まります。この上位語の集合で共通集合をもとめると、帰納として使える上位語が取得できるので、その上位語を使って差し換えた文を出力します。
+
 ## 現実装の制約と今後
 
 - 「〜は〜」という日本語の単文のみ対応しています。現状英文は対応していません。
@@ -42,3 +46,4 @@ $ cat data/text2.txt | python query.py --max_step 2
 
 - [日本語 WordNet](http://compling.hss.ntu.edu.sg/wnja/)
 - [日本語WordNetのデータベースを探索するフロントエンドプログラム](http://subtech.g.hatena.ne.jp/y_yanbe/20090314/p2)
+- [Janome](https://pypi.org/project/Janome/)
