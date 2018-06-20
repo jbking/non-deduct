@@ -37,3 +37,8 @@ $ cat data/text2.txt | python query.py --max_step 2
   これは日本語の分かち書きを採用しているためで、言語ごとに切り換え英文も使えるようにしたい。
 - 対応する文法のバリエーションを増やし、複雑な文でも受け入れられるようにしたい。
   ニ格ヲ格など。
+
+## 参考
+
+- [日本語 WordNet](http://compling.hss.ntu.edu.sg/wnja/)
+- [日本語WordNetのデータベースを探索するフロントエンドプログラム](http://subtech.g.hatena.ne.jp/y_yanbe/20090314/p2)
